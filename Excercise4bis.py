@@ -2,12 +2,11 @@ import re
 from collections import Counter
 
 def count_words(text):
-    # Remove punctuation and convert text to lowercase
-    #text = re.sub(r'[^\w\s]', '', text)
-    text = text.lower()
+    # Remove punctuation and convert text to lowercas
+    text = #ToDo
     
     # Split the text into words
-    words = text.split()
+    words =#ToDo
     
     # Count the frequency of each word using Counter
     word_counts = Counter(words)
@@ -24,5 +23,5 @@ if __name__ == "__main__":
     word_counts = count_words(input_text)
     
     # Print the word counts
-    for word, count in word_counts.items():
+    for word, count in #ToDo :
         print(f"'{word}': {count}")
