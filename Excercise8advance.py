@@ -16,10 +16,10 @@ def main():
 
     # 
     result = []
-    num_exec = #TODO
+    num_exec = 1000
     
-    #TODO Do the for loop
-        #TODO Add the result to result
+    for _ in len(num_exec):
+       result.append(roll_two_dice())
 
     # Create plot
     plt.hist(result, bins=range(2, 14), align='left', rwidth=0.8)
