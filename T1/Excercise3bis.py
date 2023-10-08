@@ -4,9 +4,9 @@ import random
 
 def main():
     # Set the range of numbers and the number of attempts
-    min_number = #ToDo
-    max_number = #ToDo
-    max_attempts = #ToDo
+    min_number = #TODO
+    max_number = #TODO
+    max_attempts = #TODO
 
     # Generate a random number for the player to guess
     secret_number = random.randint(min_number, max_number)
@@ -17,9 +17,9 @@ def main():
     for attempt in range(1, max_attempts + 1):
         guess = int(input(f"Attempt {attempt}/{max_attempts}: Enter your guess: "))
 
-        if #ToDo:
+        if #TODO
             print("Try a higher number.")
-        elif #ToDo : 
+        elif #TODO
             print("Try a lower number.")
         else:
             print(f"Congratulations! You guessed the number {secret_number} in {attempt} attempts.")
