@@ -1,5 +1,5 @@
 
-# 
+# Show the version of the Git.
 git --version
 
 #
