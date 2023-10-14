@@ -18,7 +18,7 @@ def main():
     result = []
     num_exec = 1000
     
-    for _ in len(num_exec):
+    for _ in range(num_exec):
        result.append(roll_two_dice())
 
     # Create plot
@@ -31,6 +31,8 @@ def main():
 
     # Show grafic
     plt.show()
+
+    print()
 
 
 if __name__ == "__main__":
