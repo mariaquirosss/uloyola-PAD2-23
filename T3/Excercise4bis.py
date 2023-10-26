@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 class Figure(ABC):
     def __init__(self):
-        self.area = 10
+        self.area = None
         self.perimeter = None
 
     @abstractmethod
@@ -14,15 +14,21 @@ class Figure(ABC):
         pass
 
 class Square(Figure):
-    def __init__(self, #TODO):
-        
+    def __init__(self, side=0):
+        super().__init__
+        self.side = side
 
     def calculate_area(self):
-        #TODO
+        self.area = self.side * self.side
 
     def calculate_perimeter(self):
-        #TODO
+        self.perimeter = 4 * self.side
 
+
+newSquare = Square(10)
+newSquare.calculate_area()
+newSquare.calculate_perimeter()
+print(f"Square - Area: {newSquare.area}, Perimeter: {newSquare.perimeter}")
 
 class Rectangle(Figure):
     def __init__(self, width, height):
