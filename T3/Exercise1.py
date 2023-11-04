@@ -1,3 +1,5 @@
+import math;
+
 class Person:
     def __init__(self, name, surname, age, address, phone_number):
         self.name = name
@@ -6,6 +8,10 @@ class Person:
         self.address = address
         self.phone_number = phone_number
 
+    def copy(self):
+        new = Person(self.name, self.surname, self.address, self.phone_number)
+        return new
+
     def __del__(self):
         print("Destructor called")
 
@@ -13,7 +19,7 @@ class Person:
     def get_name(self):
         return self.name
 
-    def set_name(self, name):
+    def set_name(self, name:str)->None:
         self.name = name
 
     def get_surname(self):
@@ -40,7 +46,7 @@ class Person:
     def set_phone_number(self, phone_number):
         self.phone_number = phone_number
 
-    def print_info(self):
+    def __str__(self):
         print(f"Name: {self.name}")
         print(f"Surname: {self.surname}")
         print(f"Age: {self.age}")
@@ -51,11 +57,19 @@ class Person:
 person = Person("Daniel", "M", 30, "123 Main St", "555-123-4567")
 person1 = Person("Daniel", "M", 30, "123 Main St", 123456)
 
-person.print_info()
-person1.print_info()
+copy = person
+copy.age = 18
 
-person.__sizeof__
+print(person.get_age())
 
+person.__repr__()
+person.__str__()
+
+value = math.pi
+
+value.
+
+print(value.__str__())
 
 person1.__del__()
 
