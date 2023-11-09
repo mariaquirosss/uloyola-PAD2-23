@@ -36,7 +36,7 @@ class Square(Rectangle):
     def calculate_area(self):
         self.area = self.side * self.side
 
-    def calculate_perimeter(self):
+    def calculate_perimeter(self) -> None:
         self.perimeter = 4 * self.side
 
     def __repr__(self) -> str:
