@@ -3,8 +3,8 @@ import random
 # Define the Card class
 class Card:
     def __init__(self, suit = str, value = str):
-        # TODO
-        # TODO
+        self.suit
+        self.value
 
     def __str__(self):
         return f"{self.value} of {self.suit}"
