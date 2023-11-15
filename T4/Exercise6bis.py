@@ -2,7 +2,7 @@ import random
 
 # Define the Card class
 class Card:
-    def __init__(self, suit, value):
+    def __init__(self, suit = str, value = str):
         # TODO
         # TODO
 
@@ -14,12 +14,12 @@ class Hand:
     def __init__(self):
         self.cards = []
 
-    def draw(self, deck, num_cards=1):
+    def draw(self, deck, num_cards=1) -> []:
         drawn_cards = deck.deal(num_cards)
         self.cards.extend(drawn_cards)
         return drawn_cards
 
-    def discard(self, card):
+    def discard(self, card = Card) -> Card:
         if card in self.cards:
             self.cards.remove(card)
             return card
@@ -27,21 +27,21 @@ class Hand:
             print("Card not in hand.")
             return None
 
-    def receive_cards(self, cards):
+    def receive_cards(self, cards = []) -> None:
         # TODO
 
 # Define the Deck class
 class Deck:
-    def __init__(self, suits, values):
+    def __init__(self, suits = [], values = []):
        # TODO
 
-    def deal(self, num_cards):
+    def deal(self, num_cards = int):
         # TODO
 
-    def draw(self):
+    def draw(self) -> Card:
         # TODO
 
-    def shuffle(self):
+    def shuffle(self) -> None:
         # TODO
 
 # Define the SpanishDeck class
