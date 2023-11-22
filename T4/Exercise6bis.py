@@ -3,8 +3,8 @@ import random
 # Define the Card class
 class Card:
     def __init__(self, suit = str, value = str):
-        self.suit
-        self.value
+        self.suit = suit
+        self.value = value
 
     def __str__(self):
         return f"{self.value} of {self.suit}"
@@ -28,7 +28,8 @@ class Hand:
             return None
 
     def receive_cards(self, cards = []) -> None:
-        # TODO
+        self.cards.append(cards)
+        self.cards.extend(cards) <...
 
 # Define the Deck class
 class Deck:
