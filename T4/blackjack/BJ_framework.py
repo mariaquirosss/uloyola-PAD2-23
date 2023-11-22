@@ -3,11 +3,11 @@ from tkinter import PhotoImage, messagebox
 import random
 
 class Card:
-    def __init__(self, suit, value):
+    def __init__(self, suit: str, value: int):
         # TODO: Initialize the attributes
         pass
 
-    def get_numeric_value(self):
+    def get_numeric_value(self) -> int:
         # TODO: Return the numeric value of the card
         pass
 
@@ -24,7 +24,7 @@ class Deck:
         # TODO: Shuffle the cards
         pass
 
-    def deal(self):
+    def deal(self)-> Card:
         # TODO: Deal one card from the deck
         pass
 
@@ -38,11 +38,11 @@ class Hand:
         # TODO: Initialize the hand
         pass
 
-    def add_card(self, card):
+    def add_card(self, card: Card):
         # TODO: Add a card to the hand
         pass
 
-    def value(self):
+    def value(self)->int:
         # TODO: Return the total value of the hand
         pass
 
@@ -60,11 +60,11 @@ class BlackjackGame:
         # TODO: Start a new game and deal two cards to each player
         pass
 
-    def hit(self):
+    def hit(self)-> bool:
         # TODO: Add a card to the player's hand
         pass
 
-    def dealer_hit(self):
+    def dealer_hit(self) -> bool:
         # TODO: Deal cards to the dealer based on blackjack's standard rules
         pass
 
