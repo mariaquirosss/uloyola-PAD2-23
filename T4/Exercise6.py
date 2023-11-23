@@ -34,9 +34,9 @@ class Hand:
 class Deck:
     def __init__(self, suits =  [], values = []):
 
-        for value in values:
-            for suit in suits:
-                self.cards.append(Card(suit,value))
+       # for value in values:
+     #     for suit in suits:
+     #           self.cards.append(Card(suit,value))
 
         self.cards = [Card(suit, value) for suit in suits for value in values]
 
@@ -66,13 +66,13 @@ class EnglishDeck(Deck):
         super().__init__(suits, values)
 
 # Example usage:
-# spanish_deck = SpanishDeck()
-# english_deck = EnglishDeck()
-# player_hand = Hand()
+spanish_deck = SpanishDeck()
+english_deck = EnglishDeck()
+player_hand = Hand()
 
-# player_hand.draw(spanish_deck, 3)
-# player_hand.discard(player_hand.cards[0])
-# player_hand.receive_cards(english_deck.deal(2))
-# spanish_deck.shuffle()
-# card_drawn = spanish_deck.draw()
-# print(card_drawn)
+player_hand.draw(spanish_deck, 3)
+player_hand.discard(player_hand.cards[0])
+player_hand.receive_cards(english_deck.deal(2))
+spanish_deck.shuffle()
+card_drawn = spanish_deck.draw()
+print(card_drawn)
