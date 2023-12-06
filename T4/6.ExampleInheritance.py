@@ -1,15 +1,15 @@
 from abc import ABC, abstractmethod
 
-class Figure(ABC):
+class Figure(ABC): # Notice, Abstract class inherint from ABC 
     def __init__(self):
         self.area = None
         self.perimeter = None
 
-    @abstractmethod
+    @abstractmethod # Abstract method won't be define here
     def calculate_area(self):
         pass
 
-    @abstractmethod
+    @abstractmethod # Abstract methond won't be define here
     def calculate_perimeter(self):
         pass
 

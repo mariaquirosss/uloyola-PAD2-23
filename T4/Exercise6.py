@@ -34,9 +34,9 @@ class Hand:
 class Deck:
     def __init__(self, suits =  [], values = []):
 
-       # for value in values:
-     #     for suit in suits:
-     #           self.cards.append(Card(suit,value))
+     #  for suit in suits:
+     #     for value in values:
+     #         self.cards.append(Card(suit,value))
 
         self.cards = [Card(suit, value) for suit in suits for value in values]
 
