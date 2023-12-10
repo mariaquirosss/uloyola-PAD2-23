@@ -41,6 +41,7 @@ class Mobile(Terminal):
     def __init__(self, phone_number:Terminal, rate:str):
         super().__init__(phone_number)
         self._rate = rate
+        self._cost = 0
 
     #Call Metohd for Mobile phones
     def call(self, other_terminal:Terminal, duration:float):
@@ -54,8 +55,7 @@ class Mobile(Terminal):
 
         cost = (duration / 60) * cost_per_minute
         self._conversation_time += duration
-        
-        print(f"{super().__str__()} - charged {cost:.2f}€")
+        self._cost += cost
 
     # Change Rate Metof
     def change_rate(self, new_rate:str):
@@ -63,6 +63,10 @@ class Mobile(Terminal):
             raise ValueError("Invalid rate. Please choose 'rat', 'monkey', or 'elephant'.")
         
         self._rate = new_rate
+
+    # Redefition of String, adding the charged cost with 2 digits
+    def __str__(self):
+        return f"{super().__str__()} - charged {self._cost:.2f}€"
 
 # Test program
 if __name__ == "__main__":
