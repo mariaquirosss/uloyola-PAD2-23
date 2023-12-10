@@ -27,7 +27,8 @@ class Terminal:
 
     # Method String
     def __str__(self):
-        return f"{self._phone_number} - Conversation time: {self._conversation_time}s"
+        phoneNumberSpliter = ' '.join([str(self._phone_number)[:3], str(self._phone_number)[3:5], str(self._phone_number)[5:7], str(self._phone_number)[7:]])
+        return f"{phoneNumberSpliter} - Conversation time: {self._conversation_time}s"
 
 '''' Resolution for the Second Step'''
 
