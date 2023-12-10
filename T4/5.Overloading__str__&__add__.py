@@ -20,10 +20,13 @@ class Point:
 point1=Point(10,3)
 point2=Point(3,4)
 
+point1.
+
 # Using print(Object), will call __str__ method.
 print(point1)
 print(point2)
 
 # Using Add with Overloading
 point3 = point1 + point2
+
 print(point3)

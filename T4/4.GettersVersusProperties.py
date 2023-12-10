@@ -6,15 +6,15 @@ class Student:
 	# Getter of the attribute
 	def get_name(self):
 		return self.__name
-	
-	# Setter of the attribute
-	def set_name(self, newname:str):
-		self.__name = newname
 
 	# Similar as Getter (get value of an attribute)
 	@property 
 	def name(self):
 		return self.__name
+
+	# Setter of the attribute
+	def set_name(self, newname:str):
+		self.__name = newname
 
 	# Simiar as Setter (set value of an attibute)
 	@name.setter 
