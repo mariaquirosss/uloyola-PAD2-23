@@ -75,4 +75,14 @@ x_values = [point1.x, point2.x, point3.x, point4.x]
 y_values = [point1.y, point2.y, point3.y, point4.y]
 
 # Trazar el rectángulo en un gráfico
-plt.plot(x_values, y_values, marker='o
+plt.plot(x_values, y_values, marker='o', linestyle='-')
+plt.fill(x_values, y_values, alpha=0.3)  # Rellenar el rectángulo con cierta transparencia
+
+# Etiquetas y título del gráfico
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Rectangle Visualization')
+
+# Mostrar el gráfico
+plt.grid(True)
+plt.show()
