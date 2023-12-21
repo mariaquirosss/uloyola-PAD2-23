@@ -1,102 +1,72 @@
-# Definición de la clase base Publication
 class Publication:
-    # Constructor de la clase Publication que se ejecuta al crear un nuevo objeto Publication
+    
     def __init__(self, title, authors, year, status="disponible"):
-        # Inicialización de los atributos title, authors, year y status del objeto Publication
-        self.title = title  # Título de la publicación
-        self.authors = authors  # Lista de autores de la publicación
-        self.year = year  # Año de publicación
-        self.status = status  # Estado de la publicación (disponible por defecto)
+    
+        self.title = title  
+        self.authors = authors  
+        self.year = year  
+        self.status = status  
 
-# Definición de la clase derivada Book que hereda de la clase Publication
 class Book(Publication):
-    # Constructor de la clase Book que se ejecuta al crear un nuevo objeto Book
+
     def __init__(self, title, authors, year, ISBN, num_pages):
-        # Llamar al constructor de la clase base Publication para inicializar los atributos title, authors y year
         super().__init__(title, authors, year)
-        # Inicialización de los atributos específicos de Book
-        self.ISBN = ISBN  # Número de identificación único del libro
-        self.num_pages = num_pages  # Número de páginas del libro
+        self.ISBN = ISBN  
+        self.num_pages = num_pages  
 
-# Definición de la clase derivada Journal que hereda de la clase Publication
 class Journal(Publication):
-    # Constructor de la clase Journal que se ejecuta al crear un nuevo objeto Journal
+
     def __init__(self, title, authors, year, edition, periodicity):
-        # Llamar al constructor de la clase base Publication para inicializar los atributos title, authors y year
         super().__init__(title, authors, year)
-        # Inicialización de los atributos específicos de Journal
-        self.edition = edition  # Número de edición del periódico
-        self.periodicity = periodicity  # Periodicidad del periódico (por ejemplo, mensual)
+        self.edition = edition  
+        self.periodicity = periodicity  
 
 
-
-# Definición de la clase base User
 class User:
-    # Constructor de la clase User que se ejecuta al crear un nuevo objeto User
-    def __init__(self, name, userID):
-        # Inicialización de los atributos name y userID del objeto User
-        self.name = name  # Nombre del usuario
-        self.userID = userID  # Identificación única del usuario
-        self.pubs = []  # Lista para almacenar las publicaciones que el usuario ha prestado
 
-    # Método lend_pub que permite al usuario tomar prestada una publicación
+    def __init__(self, name, userID):
+        self.name = name  
+        self.userID = userID  
+        self.pubs = []  
+
     def lend_pub(self, publication):
-        # Verificar si el usuario puede tomar prestada la publicación (no ha alcanzado el límite)
         if len(self.pubs) < self.max_pubs:
-            # Agregar la publicación a la lista de publicaciones prestadas por el usuario
             self.pubs.append(publication)
-            # Cambiar el estado de la publicación a "prestada"
             publication.status = "borrowed"
         else:
-            # Imprimir un mensaje si el usuario ha alcanzado el límite máximo de elementos prestados
             print(f"{self.name} ha alcanzado el límite máximo de elementos prestados.")
 
-    # Método return_pub que permite al usuario devolver una publicación prestada
     def return_pub(self, publication):
-        # Verificar si la publicación está en la lista de publicaciones prestadas por el usuario
         if publication in self.pubs:
-            # Eliminar la publicación de la lista de publicaciones prestadas por el usuario
             self.pubs.remove(publication)
-            # Cambiar el estado de la publicación a "disponible"
             publication.status = "available"
         else:
-            # Imprimir un mensaje si la publicación no fue prestada por el usuario
             print(f"El libro {publication.title} no fue prestado por {self.name}.")
 
-# Definición de la clase derivada Professor que hereda de la clase User
 class Professor(User):
-    # Constructor de la clase Professor que se ejecuta al crear un nuevo objeto Professor
+
     def __init__(self, name, userID, department, employeeID):
-        # Llamar al constructor de la clase base User para inicializar los atributos name y userID
         super().__init__(name, userID)
-        # Inicialización de los atributos específicos de Professor
-        self.department = department  # Departamento al que pertenece el profesor
-        self.employeeID = employeeID  # Identificación única del empleado
-        self.max_pubs = 2  # Límite máximo de elementos prestados para un profesor
+        self.department = department  
+        self.employeeID = employeeID  
+        self.max_pubs = 2  
 
-# Definición de la clase derivada Student que hereda de la clase User
 class Student(User):
-    # Constructor de la clase Student que se ejecuta al crear un nuevo objeto Student
+
     def __init__(self, name, userID, grade, studentID):
-        # Llamar al constructor de la clase base User para inicializar los atributos name y userID
         super().__init__(name, userID)
-        # Inicialización de los atributos específicos de Student
-        self.grade = grade  # Grado académico del estudiante
-        self.studentID = studentID  # Identificación única del estudiante
-        self.max_pubs = 1  # Límite máximo de elementos prestados para un estudiante
+        self.grade = grade  
+        self.studentID = studentID  
+        self.max_pubs = 1  
 
 
-
-# Definición de la clase Library
 class Library:
-    # Constructor de la clase Library
-    def __init__(self, name):
-        # Atributos de la clase Library
-        self.name = name  # Nombre de la biblioteca
-        self.catalogue = []  # Lista de objetos de tipo Publication (catálogo de la biblioteca)
-        self.users = []  # Lista de objetos de tipo User (usuarios registrados en la biblioteca)
 
-    # Método que muestra el catálogo de la biblioteca
+    def __init__(self, name):
+        self.name = name  
+        self.catalogue = []  
+        self.users = []  
+
     def show_catalog(self):
         print(f"Catálogo de la biblioteca: {self.name}")
         print("-" * 50)
@@ -104,35 +74,29 @@ class Library:
             print(f"{item.title} - {item.authors} ({item.year})")
         print("-" * 50)
 
-    # Método que agrega una nueva publicación al catálogo
     def add_publication(self, publication):
         self.catalogue.append(publication)
 
-    # Método que registra un nuevo usuario en la biblioteca
     def register_user(self, user):
         self.users.append(user)
 
-    # Método que permite a un usuario tomar prestada una publicación del catálogo
     def lend_pub(self, user, publication):
-        # Verificar que tanto el usuario como la publicación estén registrados
         if user in self.users and publication in self.catalogue:
-            # Verificar si el usuario puede tomar prestada la publicación
             if len(user.pubs) < user.max_pubs:
-                user.lend_pub(publication)  # Llamar al método lend_pub del usuario para realizar el préstamo
+                user.lend_pub(publication) 
                 print(f"El libro '{publication.title}' ha sido prestado a {user.name}.")
             else:
                 print(f"{user.name} ha alcanzado el límite máximo de elementos prestados.")
         else:
             print("El usuario o la publicación no están registrados.")
 
-    # Método que permite a un usuario devolver una publicación prestada
     def return_pub(self, user, publication):
-        # Verificar que tanto el usuario como la publicación estén registrados
         if user in self.users and publication in self.catalogue:
-            user.return_pub(publication)  # Llamar al método return_pub del usuario para devolver la publicación
+            user.return_pub(publication) 
             print(f"El libro '{publication.title}' ha sido devuelto por {user.name}.")
         else:
             print("El usuario o la publicación no están registrados.")
+
 
 
 # Example Usage:
